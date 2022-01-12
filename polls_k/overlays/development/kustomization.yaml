@@ -1,0 +1,25 @@
+namePrefix: dev-
+
+namespace: polls
+
+commonLabels:
+  app.kubernetes.io/instance: polls-dev
+  environment: dev
+
+resources:
+- ../../base
+
+configMapGenerator:
+- name: polls-configmap
+  behavior: merge
+  literals:
+    - POSTGRES_USER="polly-dev"
+    - POSTGRES_HOST="dev-polls-postgresql"
+
+
+secretGenerator:
+- name: polls-postgresql
+  behavior: replace
+  literals:
+  - postgresql-postgres-password="supersecret"
+  - postgresql-password="doublysupersecret"

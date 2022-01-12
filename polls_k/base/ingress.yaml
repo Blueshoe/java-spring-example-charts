@@ -1,0 +1,22 @@
+---
+# Source: polls/templates/ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: polls
+  labels:
+    app.kubernetes.io/name: polls
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+    - host: "spring.127.0.0.1.nip.io"
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: polls
+                port:
+                  number: 8080

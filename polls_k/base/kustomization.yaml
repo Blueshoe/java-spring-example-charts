@@ -1,0 +1,22 @@
+resources:
+- polls-deployment.yaml
+- polls-service.yaml
+- postgres-statefulset.yaml
+- postgres-service.yaml
+- ingress.yaml
+
+configMapGenerator:
+- name: polls-configmap
+  literals:
+    - POSTGRES_DATABASE="polls"
+    - POSTGRES_DB="polls"
+    - POSTGRES_HOST="polls-postgresql"
+    - POSTGRES_PORT="5432"
+    - POSTGRESQL_PORT_NUMBER="5432"
+    - POSTGRES_USER="polly"
+
+secretGenerator:
+- name: polls-postgresql
+  literals:
+  - postgresql-postgres-password="setme"
+  - postgresql-password="setme"
