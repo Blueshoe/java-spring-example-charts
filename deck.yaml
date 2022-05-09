@@ -1,0 +1,30 @@
+version: "1"
+
+# the cluster configuration across all decks
+cluster:
+  provider: k3d
+  minVersion: 4.0.0
+  name: polls
+  nativeConfig: # content of the native config file (e.g. https://k3d.io/v5.0.0/usage/configfile/)
+    apiVersion: k3d.io/v1alpha2
+    kind: Simple
+    servers: 1 # same as `--servers 1`
+    agents: 1 # same as `--agents 2`
+    image: rancher/k3s:v1.22.7-k3s1 # Kubernetes version
+    ports:
+      - port: 8080:80
+        nodeFilters:
+          - loadbalancer
+      - port: 31819:31819/UDP
+        nodeFilters:
+          - agent[0]
+
+decks:
+  - name: polls
+    namespace: polls
+    sources:
+    - type: kustomize
+      ref: git@github.com:Blueshoe/java-spring-example-charts.git
+      targetRevision: main
+      path: polls_k/overlays/development
+
