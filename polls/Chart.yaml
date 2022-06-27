@@ -10,5 +10,5 @@ appVersion: "0.1.0"
 
 dependencies:
 - name: postgresql
-  version: 10.13.x  # 10.13.11 corresponds to postgresql 11.14.0
+  version: 10.16.2
   repository: https://charts.bitnami.com/bitnami
