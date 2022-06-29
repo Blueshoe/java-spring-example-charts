@@ -3,16 +3,16 @@ entries:
   polls:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2022-06-29T14:32:05.774289007+02:00"
+    created: "2022-06-29T14:58:59.555017225+02:00"
     dependencies:
     - name: postgresql
       repository: https://charts.bitnami.com/bitnami
-      version: 10.16.2
+      version: 11.6.10
     description: A Helm chart for the java spring example application
-    digest: 2889dc9724c28536ae1fd519a442e7d13354763379f1d0c834e588959d016998
+    digest: 58aab1fcfac117dfc010121f27f2f594848328a353facf55f1301e9ae8a33083
     name: polls
     type: application
     urls:
     - polls-0.1.0.tgz
     version: 0.1.0
-generated: "2022-06-29T14:32:05.766128904+02:00"
+generated: "2022-06-29T14:58:59.548749995+02:00"

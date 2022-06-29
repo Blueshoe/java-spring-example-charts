@@ -73,9 +73,10 @@ affinity: {}
 
 global:
   postgresql:
-    postgresqlDatabase: polls
-    postgresqlUsername: polly
-    postgresqlPassword: GZKVNzKRJMYARvhLaMwCuCfGcWpdw9WY
+    auth:
+      database: polls
+      username: polly
+      password: GZKVNzKRJMYARvhLaMwCuCfGcWpdw9WY
 
 environmentVariables:
   POSTGRES_HOST: polls-postgresql
