@@ -327,3 +327,6 @@ tags
 
 # SOPS
 *.dec
+
+# keep packaged charts
+!/docs/*.tgz
